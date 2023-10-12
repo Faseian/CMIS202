@@ -36,5 +36,4 @@ public class User {
     public void setExpenses(ArrayList<Expense> expenses) {
         Expenses = expenses;
     }
-    public void addExpense(ArrayList<Expense> expenses, Expense expense) { expenses.add(expense); }
 }

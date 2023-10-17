@@ -5,17 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Updates">
-      <change afterPath="$PROJECT_DIR$/src/ClassFiles/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/DataFiles/User.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Exceptions/InvalidUsernameException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ScreenFiles/LoginPage.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ScreenFiles/SignupPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ClassFiles/Admin.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/TitlePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/TitlePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DataFiles/User.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFiles/User.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +20,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
+        <option value="FxmlFile" />
       </list>
     </option>
   </component>
@@ -50,9 +45,13 @@
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/nab4n/IdeaProjects/CMIS202",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
     "vue.rearranger.settings.migration": "true"
   }
@@ -80,7 +79,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696914624221</updated>
-      <workItem from="1697096443974" duration="180000" />
+      <workItem from="1697096443974" duration="499000" />
+      <workItem from="1697172140516" duration="2202000" />
+      <workItem from="1697525380058" duration="1065000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <option name="closed" value="true" />
@@ -114,7 +115,23 @@
       <option name="project" value="LOCAL" />
       <updated>1696915883649</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Updates">
+      <option name="closed" value="true" />
+      <created>1697096765283</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096765283</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updates">
+      <option name="closed" value="true" />
+      <created>1697096789650</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697096789650</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

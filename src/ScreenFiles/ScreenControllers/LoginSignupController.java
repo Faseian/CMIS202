@@ -60,7 +60,7 @@ public class LoginSignupController {
                 String inputUser = lineCatcher.substring(0, holder);
                 if (user.equals(inputUser)) {
                     if (pass.equals(inputPass)) {
-                        root = FXMLLoader.load(getClass().getResource("../TitlePage.fxml"));
+                        root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         scene = new Scene(root);
                         stage.setScene(scene);

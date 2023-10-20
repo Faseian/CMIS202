@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.MainScreenController">
+   <children>
+      <Text id="MainTitle" fx:id="MainTitle" layoutX="589.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello ">
+         <font>
+            <Font name="Serif Regular" size="48.0" />
+         </font>
+      </Text>
+      <PieChart fx:id="ExpenseChart" layoutX="390.0" layoutY="213.0" title="Expense Chart" />
+      <Button fx:id="AddExpense" layoutX="130.0" layoutY="213.0" mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense">
+         <font>
+            <Font name="Serif Regular" size="14.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>

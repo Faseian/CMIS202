@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.AddExpenseController">
+   <children>
+      <Text layoutX="511.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Expense">
+         <font>
+            <Font name="Serif Regular" size="48.0" />
+         </font>
+      </Text>
+      <TextField fx:id="ExpenseTotal" layoutX="490.0" layoutY="230.0" promptText="Expense Total ($)">
+         <font>
+            <Font name="Serif Regular" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ExpenseLocation" layoutX="489.0" layoutY="410.0" promptText="Location of Expense">
+         <font>
+            <Font name="Serif Regular" size="24.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="ExpenseName" layoutX="489.0" layoutY="320.0" promptText="Name of Expense">
+         <font>
+            <Font name="Serif Regular" size="24.0" />
+         </font>
+      </TextField>
+      <Button fx:id="AddExpenseButton" layoutX="518.0" layoutY="518.0" mnemonicParsing="false" onAction="#addExpenseToAcc" text="Add Expense">
+         <font>
+            <Font name="Serif Regular" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="TestButton" layoutX="175.0" layoutY="175.0" mnemonicParsing="false" onAction="#testScript" text="TestButton" />
+   </children>
+</AnchorPane>

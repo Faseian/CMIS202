@@ -1,4 +1,6 @@
 package ScreenFiles.ScreenControllers;
+import ClassFiles.Expense;
+import ClassFiles.User;
 import Exceptions.InvalidUsernameException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -8,10 +10,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -19,13 +19,15 @@ public class LoginSignupController {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    private final File userFilePath = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\User.txt");
+    private ArrayList<Expense> Expenses = new ArrayList<>();
+    private User activeUser = new User("", "", Expenses);
+    private static final File userFilePath = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\User.txt");
     @FXML
     private TextField userField;
     @FXML
     private TextField passField;
 
-    static void checkUsername(String usernameInput) throws InvalidUsernameException {
+    static void checkUsername(String usernameInput) throws InvalidUsernameException, FileNotFoundException {
         if (usernameInput.equals("")) {
             throw new InvalidUsernameException("Invalid username");
         }
@@ -60,6 +62,8 @@ public class LoginSignupController {
                 String inputUser = lineCatcher.substring(0, holder);
                 if (user.equals(inputUser)) {
                     if (pass.equals(inputPass)) {
+                        activeUser.setUsername(inputUser);
+                        activeUser.setPass(inputPass);
                         root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         scene = new Scene(root);
@@ -74,7 +78,7 @@ public class LoginSignupController {
     public void checkSignup(ActionEvent e) throws IOException {
         String user = userField.getText();
         String pass = passField.getText();
-
+        boolean validUsername = true;
         try {
             checkUsername(user);
             FileWriter fileWriter = new FileWriter(userFilePath, true);
@@ -82,18 +86,43 @@ public class LoginSignupController {
 
             if(!userFilePath.exists()) {
                 userFilePath.createNewFile();
+                validUsername = true;
+            } else if (userFilePath.length() == 0) {
+                validUsername = true;
+            }else {
+                Scanner loginFileText = new Scanner(userFilePath);
+                do {
+                    String lineCatcher = loginFileText.nextLine();
+                    int holder = lineCatcher.indexOf(",");
+                    String inputUser = lineCatcher.substring(0, holder);
+                    if (user.equals(inputUser)) {
+                        validUsername = false;
+                        System.out.println("Username has been taken");
+                    }
+                } while (loginFileText.hasNext());
             }
-
-            printWriter.println(user + "," + pass);
-            printWriter.close();
-
-            root = FXMLLoader.load(getClass().getResource("../TitlePage.fxml"));
-            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            if (validUsername) {
+                printWriter.println(user + "," + pass);
+                printWriter.close();
+                File createUserFile = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\" + user + ".txt");
+                createUserFile.createNewFile();
+                activeUser.setUsername(user);
+                activeUser.setPass(pass);
+                root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+                stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            }
         } catch (Exception exception) {
             System.out.println("A problem has occurred: " + exception);
         }
+    }
+
+    public String getActiveUsername() {
+        return activeUser.getUsername();
+    }
+    public String getActivePass() {
+        return activeUser.getPass();
     }
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.AddExpenseController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.AddExpenseController">
    <children>
       <Text layoutX="511.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Expense">
          <font>
@@ -33,6 +33,5 @@
             <Font name="Serif Regular" size="36.0" />
          </font>
       </Button>
-      <Button fx:id="TestButton" layoutX="175.0" layoutY="175.0" mnemonicParsing="false" onAction="#testScript" text="TestButton" />
    </children>
 </AnchorPane>

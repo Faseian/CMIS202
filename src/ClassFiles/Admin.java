@@ -14,7 +14,7 @@ public class Admin extends User{
     }
 
     public Admin(String username, String pass, ArrayList<Expense> expenses) {
-        super(username, pass, expenses);
+        super(username, pass, true, expenses);
     }
 
 }

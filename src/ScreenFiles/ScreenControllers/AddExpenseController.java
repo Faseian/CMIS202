@@ -14,8 +14,9 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Scanner;
 
-public class AddExpenseController {
+public class AddExpenseController extends LoginSignupController {
     private Parent root;
     private Stage stage;
     private Scene scene;
@@ -26,7 +27,7 @@ public class AddExpenseController {
     @FXML
     private TextField ExpenseLocation;
     private ArrayList<Expense> expenseList = new ArrayList<>();
-    private User activeUser = new User("","", null);
+    private User activeUser = new User("", "", false, expenseList);
     public Expense createExpense() {
         double total = Double.parseDouble(ExpenseTotal.getText());
         String name = ExpenseName.getText();
@@ -36,26 +37,18 @@ public class AddExpenseController {
         return newExpense;
     }
     public void addExpenseToAcc(ActionEvent e) throws IOException {
+        Scanner scanner = new Scanner(new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\ActiveUser.txt"));
+        String lineHolder = scanner.nextLine();
+        int placeHolder = lineHolder.indexOf(",");
+        String user = lineHolder.substring(0,placeHolder);
+        activeUser.setUsername(user);
         Expense expense = createExpense();
         activeUser.addExpense(expenseList, expense);
         File userFile = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\" + activeUser.getUsername() + ".txt");
         FileWriter fileWriter = new FileWriter(userFile, true);
         PrintWriter printWriter = new PrintWriter(fileWriter);
         printWriter.println(expense.getTotal() + "," + expense.getExpenseName() + "," + expense.getExpenseLocation());
-
-        root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
-        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    public void testScript(ActionEvent e) throws IOException {
-        Expense expense = createExpense();
-        activeUser.addExpense(expenseList, expense);
-        if (activeUser.getUsername().equals(null)) {
-            System.out.println("Username is null");
-        }
-        System.out.println(activeUser.getUsername());
+        System.out.println("Item added");
+        System.out.println("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\" + activeUser.getUsername() + ".txt");
     }
 }

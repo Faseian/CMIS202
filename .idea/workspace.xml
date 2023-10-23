@@ -5,16 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Updates">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMIS202.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CMIS202.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/DataFiles/ActiveUser.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/Expense.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/Expense.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/DataFiles/User.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/DataFiles/User.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/Exceptions/InvalidUsernameException.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/Exceptions/InvalidUsernameException.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/AddExpenseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/AddExpenseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/LoginSignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/LoginSignupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/MainScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/MainScreenController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClassFiles/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassFiles/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ClassFiles/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassFiles/Expense.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ClassFiles/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassFiles/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFiles/User.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFiles/User.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Exceptions/InvalidUsernameException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Exceptions/InvalidUsernameException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/AddExpensePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/AddExpensePage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/AddExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/AddExpenseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +38,9 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="ProjectErrors" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -41,25 +50,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/nab4n/IdeaProjects/CMIS202&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.uml&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/nab4n/IdeaProjects/bigproject",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settings.ide.settings.uml",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\nab4n\IdeaProjects\CMIS202\src\ScreenFiles" />
@@ -87,6 +96,7 @@
       <workItem from="1697172140516" duration="2202000" />
       <workItem from="1697525380058" duration="1065000" />
       <workItem from="1697557528173" duration="740000" />
+      <workItem from="1697839191866" duration="8075000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <option name="closed" value="true" />
@@ -144,7 +154,23 @@
       <option name="project" value="LOCAL" />
       <updated>1697557540571</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Updates">
+      <option name="closed" value="true" />
+      <created>1697777452033</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697777452033</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updates">
+      <option name="closed" value="true" />
+      <created>1697777498424</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697777498424</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

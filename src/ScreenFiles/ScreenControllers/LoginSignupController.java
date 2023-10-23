@@ -20,7 +20,7 @@ public class LoginSignupController {
     private Stage stage;
     private Scene scene;
     private ArrayList<Expense> Expenses = new ArrayList<>();
-    private User activeUser = new User("", "", Expenses);
+    private User activeUser = new User("", "", false, Expenses);
     private static final File userFilePath = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\User.txt");
     @FXML
     private TextField userField;
@@ -62,8 +62,10 @@ public class LoginSignupController {
                 String inputUser = lineCatcher.substring(0, holder);
                 if (user.equals(inputUser)) {
                     if (pass.equals(inputPass)) {
-                        activeUser.setUsername(inputUser);
-                        activeUser.setPass(inputPass);
+                        FileWriter fileWriter = new FileWriter(new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\ActiveUser.txt"), false);
+                        PrintWriter printWriter = new PrintWriter(fileWriter, true);
+                        printWriter.print(user + "," + pass);
+                        printWriter.close();
                         root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         scene = new Scene(root);
@@ -106,6 +108,10 @@ public class LoginSignupController {
                 printWriter.close();
                 File createUserFile = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\" + user + ".txt");
                 createUserFile.createNewFile();
+                FileWriter activeWriter = new FileWriter(new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\ActiveUser.txt"), false);
+                PrintWriter activePrintWriter = new PrintWriter(activeWriter, true);
+                activePrintWriter.print(user + "," + pass);
+                activePrintWriter.close();
                 activeUser.setUsername(user);
                 activeUser.setPass(pass);
                 root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
@@ -119,10 +125,7 @@ public class LoginSignupController {
         }
     }
 
-    public String getActiveUsername() {
-        return activeUser.getUsername();
-    }
-    public String getActivePass() {
-        return activeUser.getPass();
+    public User getActiveUser() {
+        return activeUser;
     }
 }

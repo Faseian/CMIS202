@@ -8,6 +8,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.chart.PieChart;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -21,7 +23,12 @@ public class MainScreenController implements Initializable {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    LinkedList<Expense> queue = new LinkedList<>();
+    @FXML
+    private PieChart pieChart;
+    @FXML
+    private ChoiceBox<String> expenseType;
+    private LinkedList<Expense> queue = new LinkedList<>();
+    private String[] expenseTypes = {"All", "Automotive", "Clothing", "Education", "Entertainment", "Gasoline", "Groceries", "Home", "Medical", "Restaurants", "Services", "Misc"};
 
     public void addExpensePage (ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../AddExpensePage.fxml"));
@@ -30,9 +37,14 @@ public class MainScreenController implements Initializable {
         stage.setScene(scene);
         stage.show();
     }
+    public void updatePieChart (ActionEvent e) throws IOException {
+        String type = expenseType.getValue();
+
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        expenseType.getItems().addAll(expenseTypes);
         Scanner activeUserSheet = null;
         Scanner scanner = null;
         try {

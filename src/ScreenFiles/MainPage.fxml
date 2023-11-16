@@ -2,22 +2,38 @@
 
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.MainScreenController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ScreenFiles.ScreenControllers.MainScreenController">
    <children>
-      <Text id="MainTitle" fx:id="MainTitle" layoutX="589.0" layoutY="142.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello ">
+      <Text id="MainTitle" fx:id="MainTitle" layoutX="118.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello ">
          <font>
             <Font name="Serif Regular" size="48.0" />
          </font>
       </Text>
-      <PieChart fx:id="ExpenseChart" layoutX="390.0" layoutY="213.0" title="Expense Chart" />
+      <PieChart fx:id="ExpenseChart" layoutX="708.0" layoutY="160.0" title="Expense Chart" />
       <Button fx:id="AddExpense" layoutX="130.0" layoutY="213.0" mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense">
          <font>
             <Font name="Serif Regular" size="14.0" />
          </font>
       </Button>
+      <VBox layoutX="608.0" layoutY="160.0" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <CheckBox mnemonicParsing="false" text="Automotive" />
+            <CheckBox mnemonicParsing="false" text="Education" />
+            <CheckBox mnemonicParsing="false" text="Entertainment" />
+            <CheckBox mnemonicParsing="false" text="Gasoline" />
+            <CheckBox mnemonicParsing="false" text="Groceries" />
+            <CheckBox mnemonicParsing="false" text="Home" />
+            <CheckBox mnemonicParsing="false" text="Medical" />
+            <CheckBox mnemonicParsing="false" text="Restaurants" />
+            <CheckBox mnemonicParsing="false" text="Services" />
+            <CheckBox mnemonicParsing="false" text="Misc" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

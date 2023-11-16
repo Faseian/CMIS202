@@ -3,14 +3,13 @@ package ClassFiles;
 public class Expense {
     private double total;
     private String expenseName;
-    private String expenseLocation;
+    private String expenseType;
 
-    public Expense(double total, String expenseName, String expenseLocation) {
+    public Expense(double total, String expenseName, String expenseType) {
         this.total = total;
         this.expenseName = expenseName;
-        this.expenseLocation = expenseLocation;
+        this.expenseType = expenseType;
     }
-
     public double getTotal() {
         return total;
     }
@@ -27,11 +26,11 @@ public class Expense {
         this.expenseName = expenseName;
     }
 
-    public String getExpenseLocation() {
-        return expenseLocation;
+    public String getExpenseType() {
+        return expenseType;
     }
 
-    public void setExpenseLocation(String expenseLocation) {
-        this.expenseLocation = expenseLocation;
+    public void setExpenseType(String expenseLocation) {
+        this.expenseType = expenseLocation;
     }
 }

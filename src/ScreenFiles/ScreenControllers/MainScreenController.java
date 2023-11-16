@@ -18,6 +18,8 @@ public class MainScreenController {
     private Parent root;
     private Stage stage;
     private Scene scene;
+
+
     public void addExpensePage (ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../AddExpensePage.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();

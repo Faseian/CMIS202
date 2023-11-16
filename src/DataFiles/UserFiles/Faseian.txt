@@ -1,1 +1,6 @@
 1.99,String Cheese,Groceries
+2.99,Staples,Misc
+5.99,For Honor,Entertainment
+19.99,Chair,Home
+399.99,Laptop,Education
+50.25,Dinner,Restaurants

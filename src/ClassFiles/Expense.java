@@ -13,23 +13,18 @@ public class Expense {
     public double getTotal() {
         return total;
     }
-
     public void setTotal(double total) {
         this.total = total;
     }
-
     public String getExpenseName() {
         return expenseName;
     }
-
     public void setExpenseName(String expenseName) {
         this.expenseName = expenseName;
     }
-
     public String getExpenseType() {
         return expenseType;
     }
-
     public void setExpenseType(String expenseLocation) {
         this.expenseType = expenseLocation;
     }

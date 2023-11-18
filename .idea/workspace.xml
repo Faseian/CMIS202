@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Completing Part 2 of project&#10;Adding linkedlist in MSC">
+    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Added test accounts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/AddExpensePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/AddExpensePage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,12 +24,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Faseian"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Faseian&quot;
   }
-}]]></component>
+}</component>
   <component name="GithubPullRequestsUISettings">
     <option name="selectedUrlAndAccountId">
       <UrlAndAccount>
@@ -111,7 +109,8 @@
       <workItem from="1699420639565" duration="613000" />
       <workItem from="1700025662621" duration="4215000" />
       <workItem from="1700114459872" duration="581000" />
-      <workItem from="1700115193415" duration="8420000" />
+      <workItem from="1700115193415" duration="9124000" />
+      <workItem from="1700205247285" duration="2786000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <option name="closed" value="true" />
@@ -217,7 +216,23 @@
       <option name="project" value="LOCAL" />
       <updated>1700123219366</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Pie Chart updating started">
+      <option name="closed" value="true" />
+      <created>1700125220039</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1700125220039</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Added test accounts">
+      <option name="closed" value="true" />
+      <created>1700125233045</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1700125233045</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -251,7 +266,9 @@
     <MESSAGE value="Updates" />
     <MESSAGE value="Changing FXML xmls&#10;Changed Expense Location to type" />
     <MESSAGE value="Completing Part 2 of project&#10;Adding linkedlist in MSC" />
-    <option name="LAST_COMMIT_MESSAGE" value="Completing Part 2 of project&#10;Adding linkedlist in MSC" />
+    <MESSAGE value="Pie Chart updating started" />
+    <MESSAGE value="Added test accounts" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added test accounts" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

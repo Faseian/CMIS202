@@ -50,6 +50,9 @@ public class LoginSignupController {
     }
 
     public void checkLogin(ActionEvent e) throws IOException {
+        File file = new File("DataFiles/ActiveUser.txt");
+        String filePath = file.getAbsolutePath();
+        System.out.println(filePath);
         String user = userField.getText();
         String pass = passField.getText();
 
@@ -62,7 +65,7 @@ public class LoginSignupController {
                 String inputUser = lineCatcher.substring(0, holder);
                 if (user.equals(inputUser)) {
                     if (pass.equals(inputPass)) {
-                        FileWriter fileWriter = new FileWriter(new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\ActiveUser.txt"), false);
+                        FileWriter fileWriter = new FileWriter(new File(filePath), false);
                         PrintWriter printWriter = new PrintWriter(fileWriter, true);
                         printWriter.print(user + "," + pass);
                         printWriter.close();

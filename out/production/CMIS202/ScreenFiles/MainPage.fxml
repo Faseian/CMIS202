@@ -2,30 +2,50 @@
 
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
-<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.MainScreenController">
    <children>
-      <Text id="MainTitle" fx:id="MainTitle" layoutX="118.0" layoutY="149.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello ">
-         <font>
-            <Font name="Serif Regular" size="48.0" />
-         </font>
-      </Text>
-      <PieChart fx:id="pieChart" layoutX="708.0" layoutY="160.0" title="Expense Chart" />
-      <Button fx:id="AddExpense" layoutX="130.0" layoutY="213.0" mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense">
-         <font>
-            <Font name="Serif Regular" size="14.0" />
-         </font>
-      </Button>
-      <ChoiceBox fx:id="expenseType" layoutX="558.0" layoutY="160.0" prefWidth="150.0" />
-      <Label layoutX="558.0" layoutY="133.0" prefHeight="26.0" prefWidth="150.0" text="Expense Types">
-         <font>
-            <Font name="Serif Regular" size="18.0" />
-         </font>
-      </Label>
+      <BorderPane fx:id="borderPane" prefHeight="721.0" prefWidth="1280.0">
+         <left>
+            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+               <children>
+                  <RadioButton fx:id="addAll" mnemonicParsing="false" onAction="#updatePieChart" text="All" />
+                  <RadioButton fx:id="addAutomotive" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Automotive" />
+                  <RadioButton layoutX="10.0" layoutY="180.0" mnemonicParsing="false" text="Education" />
+                  <RadioButton layoutX="10.0" layoutY="180.0" mnemonicParsing="false" text="Entertainment" />
+                  <RadioButton layoutX="10.0" layoutY="197.0" mnemonicParsing="false" text="Gasoline" />
+                  <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Groceries" />
+                  <RadioButton layoutX="10.0" layoutY="197.0" mnemonicParsing="false" text="Home" />
+                  <RadioButton layoutX="10.0" layoutY="197.0" mnemonicParsing="false" text="Medical" />
+                  <RadioButton layoutX="10.0" layoutY="214.0" mnemonicParsing="false" text="Restaurants" />
+                  <RadioButton layoutX="10.0" layoutY="231.0" mnemonicParsing="false" text="Services" />
+                  <RadioButton layoutX="10.0" layoutY="248.0" mnemonicParsing="false" text="Misc" />
+               </children>
+            </VBox>
+         </left>
+         <center>
+            <PieChart fx:id="expenseChart" title="Expense Chart" BorderPane.alignment="CENTER" />
+         </center>
+         <bottom>
+            <Button fx:id="AddExpense" mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense" BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Serif Regular" size="14.0" />
+               </font>
+            </Button>
+         </bottom>
+         <top>
+            <Text id="MainTitle" fx:id="title" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello " BorderPane.alignment="CENTER">
+               <font>
+                  <Font name="Serif Regular" size="48.0" />
+               </font>
+            </Text>
+         </top>
+      </BorderPane>
    </children>
 </AnchorPane>

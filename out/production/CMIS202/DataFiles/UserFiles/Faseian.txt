@@ -4,3 +4,5 @@
 19.99,Chair,Home
 399.99,Laptop,Education
 50.25,Dinner,Restaurants
+100.0,StarField,Entertainment
+200.99,GTA6,Entertainment

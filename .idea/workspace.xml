@@ -4,9 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Added test accounts">
+    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Update">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/Admin.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/Admin.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/User.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ClassFiles/User.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/AddExpenseController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/AddExpenseController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/LoginSignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/LoginSignupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/MainScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/MainScreenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassFiles/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassFiles/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassFiles/Expense.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassFiles/Expense.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ClassFiles/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ClassFiles/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/AddExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/AddExpenseController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,6 +121,9 @@
       <workItem from="1700114459872" duration="581000" />
       <workItem from="1700115193415" duration="9124000" />
       <workItem from="1700205247285" duration="2786000" />
+      <workItem from="1700292633093" duration="621000" />
+      <workItem from="1700696283052" duration="2627000" />
+      <workItem from="1701064450734" duration="2172000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <option name="closed" value="true" />
@@ -232,7 +245,15 @@
       <option name="project" value="LOCAL" />
       <updated>1700125233045</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Update">
+      <option name="closed" value="true" />
+      <created>1700292655855</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1700292655855</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +289,8 @@
     <MESSAGE value="Completing Part 2 of project&#10;Adding linkedlist in MSC" />
     <MESSAGE value="Pie Chart updating started" />
     <MESSAGE value="Added test accounts" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added test accounts" />
+    <MESSAGE value="Update" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

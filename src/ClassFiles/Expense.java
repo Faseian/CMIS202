@@ -10,6 +10,7 @@ public class Expense {
         this.expenseName = expenseName;
         this.expenseType = expenseType;
     }
+
     public double getTotal() {
         return total;
     }

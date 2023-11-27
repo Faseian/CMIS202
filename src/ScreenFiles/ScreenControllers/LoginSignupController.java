@@ -20,7 +20,7 @@ public class LoginSignupController {
     private Stage stage;
     private Scene scene;
     private ArrayList<Expense> Expenses = new ArrayList<>();
-    private User activeUser = new User("", "", false, Expenses);
+    private User activeUser = new User("", "", Expenses);
     private static final File userFilePath = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\User.txt");
     @FXML
     private TextField userField;
@@ -49,7 +49,7 @@ public class LoginSignupController {
         stage.show();
     }
 
-    public void checkLogin(ActionEvent e) throws IOException {
+    public void checkLogin(ActionEvent e) throws NullPointerException, IOException {
         File file = new File("DataFiles/ActiveUser.txt");
         String filePath = file.getAbsolutePath();
         System.out.println(filePath);
@@ -65,11 +65,16 @@ public class LoginSignupController {
                 String inputUser = lineCatcher.substring(0, holder);
                 if (user.equals(inputUser)) {
                     if (pass.equals(inputPass)) {
-                        FileWriter fileWriter = new FileWriter(new File(filePath), false);
-                        PrintWriter printWriter = new PrintWriter(fileWriter, true);
-                        printWriter.print(user + "," + pass);
-                        printWriter.close();
-                        root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+                        //FileWriter fileWriter = new FileWriter(new File(filePath), false);
+                        //PrintWriter printWriter = new PrintWriter(fileWriter, true);
+                        //printWriter.print(user + "," + pass);
+                        //printWriter.close();
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("../MainPage.fxml"));
+                        root = loader.load();
+                        MainScreenController mainScreenController = loader.getController();
+                        System.out.println(loader);
+                        mainScreenController.setActiveUser(user, pass, new Expense(9.99, "Free", "test"));
+                        //root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                         scene = new Scene(root);
                         stage.setScene(scene);

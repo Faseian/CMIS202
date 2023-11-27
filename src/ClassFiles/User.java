@@ -5,14 +5,12 @@ import java.util.ArrayList;
 public class User {
     private String username;
     private String pass;
-    private boolean activeUser;
-    private ArrayList<Expense> Expenses = new ArrayList<>();
+    private ArrayList<Expense> expenses = new ArrayList<>();
 
-    public User(String username, String pass, boolean activeUser, ArrayList<Expense> expenses) {
+    public User(String username, String pass, ArrayList<Expense> expenses) {
         this.username = username;
         this.pass = pass;
-        this.activeUser = activeUser;
-        Expenses = expenses;
+        this.expenses = expenses;
     }
 
     public String getUsername() {
@@ -32,13 +30,18 @@ public class User {
     }
 
     public ArrayList<Expense> getExpenses() {
-        return Expenses;
+        return expenses;
     }
 
     public void setExpenses(ArrayList<Expense> expenses) {
-        Expenses = expenses;
+        this.expenses = expenses;
     }
     public void addExpense(ArrayList<Expense> expenses, Expense expense) {
         expenses.add(expense);
+    }
+    public void addAll(String username, String pass, Expense expenses) {
+        this.username = username;
+        this.pass = pass;
+        this.expenses.add(expenses);
     }
 }

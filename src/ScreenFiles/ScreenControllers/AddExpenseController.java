@@ -31,7 +31,7 @@ public class AddExpenseController implements Initializable {
     @FXML
     private ChoiceBox<String> expenseType;
     private ArrayList<Expense> expenseList = new ArrayList<>();
-    private User activeUser = new User("", "", false, expenseList);
+    private User activeUser = new User("", "", expenseList);
     private String[] expenseTypes = {"Automotive", "Clothing", "Education", "Entertainment", "Gasoline", "Groceries", "Home", "Medical", "Restaurants", "Services", "Misc"};
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

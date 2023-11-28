@@ -4,7 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Added piechart that adds all expenses but idk if ratio is correct." />
+    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Added piechart that adds all expenses but idk if ratio is correct.">
+      <change afterPath="$PROJECT_DIR$/src/ClassFiles/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_19_2023_9_45_PM__Changes_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_10_19_2023_9_45_PM__Changes_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/DataFiles/UserFiles/Faseian.txt" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/DataFiles/UserFiles/Faseian.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/LoginSignupController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/LoginSignupController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/MainScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CMIS202/ScreenFiles/ScreenControllers/MainScreenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/MainPage.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -214,7 +225,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701075532360</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="Added piechart that adds all expenses but idk if ratio is correct.">
+      <option name="closed" value="true" />
+      <created>1701075875844</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1701075875844</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

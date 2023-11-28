@@ -6,3 +6,4 @@
 50.25,Dinner,Restaurants
 100.0,StarField,Entertainment
 200.99,GTA6,Entertainment
+99.99,Gas,Gasoline

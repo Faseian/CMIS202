@@ -15,7 +15,7 @@
          <left>
             <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <RadioButton fx:id="addAll" mnemonicParsing="false" onAction="#updatePieChart" text="All" />
+                  <RadioButton fx:id="addAll" mnemonicParsing="false" onAction="#updatePieChart" selected="true" text="All" />
                   <RadioButton fx:id="addAutomotive" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Automotive" />
                   <RadioButton layoutX="10.0" layoutY="180.0" mnemonicParsing="false" text="Education" />
                   <RadioButton layoutX="10.0" layoutY="180.0" mnemonicParsing="false" text="Entertainment" />

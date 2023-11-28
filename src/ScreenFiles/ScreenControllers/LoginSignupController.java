@@ -106,9 +106,9 @@ public class LoginSignupController {
             if (validUsername) {
                 printWriter.println(user + "," + pass);
                 printWriter.close();
-                File createUserFile = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\" + user + ".txt");
+                File createUserFile = new File("src/DataFiles/UserFiles/" + user + ".txt");
                 createUserFile.createNewFile();
-                FileWriter activeWriter = new FileWriter(new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\ActiveUser.txt"), false);
+                FileWriter activeWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt"), false);
                 PrintWriter activePrintWriter = new PrintWriter(activeWriter, true);
                 activePrintWriter.print(user + "," + pass);
                 activePrintWriter.close();

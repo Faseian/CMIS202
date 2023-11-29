@@ -7,3 +7,6 @@
 100.0,StarField,Entertainment
 200.99,GTA6,Entertainment
 99.99,Gas,Gasoline
+2.99,Apple,Groceries
+1.99,Banana,Groceries
+10.99,Steak,Groceries

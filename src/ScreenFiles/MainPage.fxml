@@ -3,6 +3,7 @@
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ToggleGroup?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
@@ -13,24 +14,27 @@
    <children>
       <BorderPane fx:id="borderPane" prefHeight="721.0" prefWidth="1280.0">
          <left>
-            <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+            <VBox prefHeight="552.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
-                  <RadioButton fx:id="addAll" mnemonicParsing="false" onAction="#updatePieChart" selected="true" text="All" />
-                  <RadioButton fx:id="addAutomotive" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Automotive" />
-                  <RadioButton layoutX="10.0" layoutY="180.0" mnemonicParsing="false" text="Education" />
-                  <RadioButton layoutX="10.0" layoutY="180.0" mnemonicParsing="false" text="Entertainment" />
-                  <RadioButton layoutX="10.0" layoutY="197.0" mnemonicParsing="false" text="Gasoline" />
-                  <RadioButton layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Groceries" />
-                  <RadioButton layoutX="10.0" layoutY="197.0" mnemonicParsing="false" text="Home" />
-                  <RadioButton layoutX="10.0" layoutY="197.0" mnemonicParsing="false" text="Medical" />
-                  <RadioButton layoutX="10.0" layoutY="214.0" mnemonicParsing="false" text="Restaurants" />
-                  <RadioButton layoutX="10.0" layoutY="231.0" mnemonicParsing="false" text="Services" />
-                  <RadioButton layoutX="10.0" layoutY="248.0" mnemonicParsing="false" text="Misc" />
+                  <RadioButton fx:id="addAll" mnemonicParsing="false" onAction="#updatePieChart" selected="true" text="All">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="type" />
+                     </toggleGroup></RadioButton>
+                  <RadioButton fx:id="addAutomotive" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#updatePieChart" text="Automotive" toggleGroup="$type" />
+                  <RadioButton fx:id="addEducation" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#updatePieChart" text="Education" toggleGroup="$type" />
+                  <RadioButton fx:id="addEntertainment" layoutX="10.0" layoutY="180.0" mnemonicParsing="false" onAction="#updatePieChart" text="Entertainment" toggleGroup="$type" />
+                  <RadioButton fx:id="addGasoline" layoutX="10.0" layoutY="197.0" mnemonicParsing="false" onAction="#updatePieChart" text="Gasoline" toggleGroup="$type" />
+                  <RadioButton fx:id="addGroceries" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#updatePieChart" text="Groceries" toggleGroup="$type" />
+                  <RadioButton fx:id="addHome" layoutX="10.0" layoutY="197.0" mnemonicParsing="false" onAction="#updatePieChart" text="Home" toggleGroup="$type" />
+                  <RadioButton fx:id="addMedical" layoutX="10.0" layoutY="197.0" mnemonicParsing="false" onAction="#updatePieChart" text="Medical" toggleGroup="$type" />
+                  <RadioButton fx:id="addRestaurants" layoutX="10.0" layoutY="214.0" mnemonicParsing="false" onAction="#updatePieChart" text="Restaurants" toggleGroup="$type" />
+                  <RadioButton fx:id="addServices" layoutX="10.0" layoutY="231.0" mnemonicParsing="false" onAction="#updatePieChart" text="Services" toggleGroup="$type" />
+                  <RadioButton fx:id="addMisc" layoutX="10.0" layoutY="248.0" mnemonicParsing="false" onAction="#updatePieChart" text="Misc" toggleGroup="$type" />
                </children>
             </VBox>
          </left>
          <center>
-            <PieChart fx:id="expenseChart" title="Expense Chart" BorderPane.alignment="CENTER" />
+            <PieChart fx:id="expenseChart" BorderPane.alignment="CENTER" />
          </center>
          <bottom>
             <Button fx:id="AddExpense" mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense" BorderPane.alignment="CENTER">

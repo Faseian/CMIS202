@@ -1,12 +1,10 @@
-import ClassFiles.ConnectionUtil;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
 import java.io.IOException;
-import java.sql.Connection;
+import java.sql.*;
 
 public class Main extends Application {
 
@@ -14,10 +12,16 @@ public class Main extends Application {
         launch(args);
     }
     @Override
-    public void start(Stage stage) throws IOException {
-        ConnectionUtil db = new ConnectionUtil();
-        Connection conn = db.connect_to_db("postgres","postgres"," ");
-        db.createTable(conn, "recovery");
+    public void start(Stage stage) throws IOException, SQLException {
+        String url = "jdbc:postgresql://localhost:5432/postgres";
+        String username = "postgres";
+        String password = "passW0rd";
+        Connection con = DriverManager.getConnection(url, username, password);
+
+        Statement statement = con.createStatement();
+        String query = "Select username from test where id=1";
+        ResultSet rs = statement.executeQuery(query);
+
         Parent root = FXMLLoader.load(getClass().getResource("ScreenFiles/TitlePage.fxml"));
         Scene scene = new Scene(root, 1280, 720);
         stage.setResizable(false);

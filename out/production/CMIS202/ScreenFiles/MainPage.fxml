@@ -10,9 +10,9 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.MainScreenController">
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ScreenFiles.ScreenControllers.MainScreenController">
    <children>
-      <BorderPane fx:id="borderPane" prefHeight="721.0" prefWidth="1280.0">
+      <BorderPane fx:id="borderPane" prefHeight="720.0" prefWidth="1280.0">
          <left>
             <VBox prefHeight="552.0" prefWidth="100.0" BorderPane.alignment="CENTER">
                <children>
@@ -37,7 +37,7 @@
             <PieChart fx:id="expenseChart" BorderPane.alignment="CENTER" />
          </center>
          <bottom>
-            <Button fx:id="AddExpense" mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense" BorderPane.alignment="CENTER">
+            <Button mnemonicParsing="false" onAction="#addExpensePage" text="Add Expense" BorderPane.alignment="CENTER">
                <font>
                   <Font name="Serif Regular" size="14.0" />
                </font>

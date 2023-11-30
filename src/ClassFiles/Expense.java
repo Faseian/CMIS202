@@ -4,7 +4,6 @@ public class Expense implements Comparable <Expense>{
     private double total;
     private String expenseName;
     private String expenseType;
-
     public Expense(double total, String expenseName, String expenseType) {
         this.total = total;
         this.expenseName = expenseName;

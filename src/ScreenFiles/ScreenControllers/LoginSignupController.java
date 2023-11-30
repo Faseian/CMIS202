@@ -5,13 +5,16 @@ import Exceptions.InvalidUsernameException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.*;
+import java.sql.*;
 import java.util.ArrayList;
+import java.util.Objects;
 import java.util.Scanner;
 
 
@@ -19,9 +22,20 @@ public class LoginSignupController {
     private Parent root;
     private Stage stage;
     private Scene scene;
+    private String url = "jdbc:postgresql://localhost:5432/postgres";
+    private String username = "postgres";
+    private String password = "passW0rd";
+    private Connection con;
+    {
+        try {
+            con = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private ArrayList<Expense> Expenses = new ArrayList<>();
     private User activeUser = new User("", "", Expenses);
-    private static final File userFilePath = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\User.txt");
+    private static final File userFilePath = new File("src/DataFiles/User.txt");
     @FXML
     private TextField userField;
     @FXML
@@ -49,7 +63,7 @@ public class LoginSignupController {
         stage.show();
     }
 
-    public void checkLogin(ActionEvent e) throws NullPointerException, IOException {
+    public void checkLogin(ActionEvent e) throws NullPointerException, IOException, SQLException {
         String user = userField.getText();
         String pass = passField.getText();
 
@@ -64,7 +78,7 @@ public class LoginSignupController {
                     if (pass.equals(inputPass)) {
                         FileWriter fileWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt") , false);
                         PrintWriter printWriter = new PrintWriter(fileWriter, true);
-                        printWriter.print(user + "," + pass);
+                        printWriter.print(user);
                         printWriter.close();
                         root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
                         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -88,10 +102,7 @@ public class LoginSignupController {
 
             if(!userFilePath.exists()) {
                 userFilePath.createNewFile();
-                validUsername = true;
-            } else if (userFilePath.length() == 0) {
-                validUsername = true;
-            }else {
+            } else {
                 Scanner loginFileText = new Scanner(userFilePath);
                 do {
                     String lineCatcher = loginFileText.nextLine();
@@ -110,22 +121,22 @@ public class LoginSignupController {
                 createUserFile.createNewFile();
                 FileWriter activeWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt"), false);
                 PrintWriter activePrintWriter = new PrintWriter(activeWriter, true);
-                activePrintWriter.print(user + "," + pass);
+                activePrintWriter.print(user);
                 activePrintWriter.close();
-                activeUser.setUsername(user);
-                activeUser.setPass(pass);
-                root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
+                String insertUser = "INSERT INTO users (username,pass) VALUES (?,?)";
+                PreparedStatement st = con.prepareStatement(insertUser);
+                st.setString(1, user);
+                st.setString(2, pass);
+                ResultSet rs = st.executeQuery();
+                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../MainPage.fxml")));
                 stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
             }
-        } catch (Exception exception) {
+        } catch (InvalidUsernameException | SQLException exception) {
             System.out.println("A problem has occurred: " + exception);
         }
     }
 
-    public User getActiveUser() {
-        return activeUser;
-    }
 }

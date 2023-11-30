@@ -46,9 +46,7 @@ public class AddExpenseController implements Initializable {
     }
     public void addExpenseToAcc(ActionEvent e) throws IOException {
         Scanner scanner = new Scanner(new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\ActiveUser.txt"));
-        String lineHolder = scanner.nextLine();
-        int placeHolder = lineHolder.indexOf(",");
-        String user = lineHolder.substring(0,placeHolder);
+        String user = scanner.nextLine();
         Expense expense = createExpense();
         File userFile = new File("C:\\Users\\nab4n\\IdeaProjects\\CMIS202\\src\\DataFiles\\UserFiles\\" + user + ".txt");
         FileWriter fileWriter = new FileWriter(userFile, true);

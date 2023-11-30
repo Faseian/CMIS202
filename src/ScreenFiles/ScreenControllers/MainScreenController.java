@@ -36,7 +36,8 @@ public class MainScreenController implements Initializable {
     @FXML
     private ToggleGroup type;
     @FXML
-    private RadioButton addAll, addAutomotive, addEducation, addEntertainment, addGasoline, addGroceries, addHome, addMedical, addRestaurants, addServices, addMisc;
+    private RadioButton addAll;
+    //, addAutomotive, addEducation, addEntertainment, addGasoline, addGroceries, addHome, addMedical, addRestaurants, addServices, addMisc;
     public void addExpensePage (ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../AddExpensePage.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -118,30 +119,30 @@ public class MainScreenController implements Initializable {
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        String lineHolder = activeUserSheet.nextLine();
-        int placeHolder = lineHolder.indexOf(",");
-        String user = lineHolder.substring(0,placeHolder);
+        String user = activeUserSheet.nextLine();
         try {
             scanner = new Scanner(new File("src/DataFiles/UserFiles/" + user + ".txt"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        while(scanner.hasNext()) {
-            String line = scanner.nextLine();
-            String[] expenseConstruct = line.split(",");
-            Expense expense = new Expense(Double.parseDouble(expenseConstruct[0]), expenseConstruct[1], expenseConstruct[2]);
-            queue.add(expense);
-        }
-        title.setText("Hello " + user);
-        for (int i = 0; i < queue.size(); i++) {
-            expenseTree.add(queue.get(i));
-            if (!totalExpenses.containsKey(queue.get(i).getExpenseType())) {
-                totalExpenses.put(queue.get(i).getExpenseType(), queue.get(i).getTotal());
-            } else {
-                double newAmount = totalExpenses.get(queue.get(i).getExpenseType()) + queue.get(i).getTotal();
-                totalExpenses.replace(queue.get(i).getExpenseType(), newAmount);
+        if (scanner.hasNext()) {
+            while(scanner.hasNext()) {
+                String line = scanner.nextLine();
+                String[] expenseConstruct = line.split(",");
+                Expense expense = new Expense(Double.parseDouble(expenseConstruct[0]), expenseConstruct[1], expenseConstruct[2]);
+                queue.add(expense);
             }
+            title.setText("Hello " + user);
+            for (int i = 0; i < queue.size(); i++) {
+                expenseTree.add(queue.get(i));
+                if (!totalExpenses.containsKey(queue.get(i).getExpenseType())) {
+                    totalExpenses.put(queue.get(i).getExpenseType(), queue.get(i).getTotal());
+                } else {
+                    double newAmount = totalExpenses.get(queue.get(i).getExpenseType()) + queue.get(i).getTotal();
+                    totalExpenses.replace(queue.get(i).getExpenseType(), newAmount);
+                }
+            }
+            updatePieChart();
         }
-        updatePieChart();
     }
 }

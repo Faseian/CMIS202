@@ -20,13 +20,15 @@ import java.net.URL;
 import java.sql.*;
 import java.util.*;
 
+import static ScreenFiles.ScreenControllers.LoginSignupController.con;
+
 public class MainScreenController implements Initializable {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String username = "postgres";
-    private final String password = "passW0rd";
+    /*private final String url = "jdbc:postgresql://bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com:50013/bv9lzxoemi1fludk9lwn";
+    private final String username = "uvk3fo0h0eqky8che5ri";
+    private final String password = "HYdwJTABjCKurd43GiQMBfXlMsE7ZA";
     private final Connection con;
     {
         try {
@@ -34,7 +36,7 @@ public class MainScreenController implements Initializable {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-    }
+    }*/
     private String[] expenseTypes = {"Automotive", "Clothing", "Education", "Entertainment", "Gasoline", "Groceries", "Home", "Medical", "Restaurants", "Services", "Misc"};
     private LinkedList<Expense> queue = new LinkedList<>();
     private TreeSet<Expense> expenseTree = new TreeSet<>();

@@ -7,7 +7,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Linked code to database and fixed code to use database instead of text files" />
+    <list default="true" id="638b136d-734d-4aa0-b687-860649058176" name="Changes" comment="Linked code to database and fixed code to use database instead of text files">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/AddExpenseController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/AddExpenseController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/LoginSignupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ScreenFiles/ScreenControllers/MainScreenController.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -109,6 +114,7 @@
       <workItem from="1701238548371" duration="14652000" />
       <workItem from="1701326755648" duration="26256000" />
       <workItem from="1701502297493" duration="307000" />
+      <workItem from="1701503882585" duration="1209000" />
     </task>
     <task id="LOCAL-00001" summary="Updates">
       <option name="closed" value="true" />

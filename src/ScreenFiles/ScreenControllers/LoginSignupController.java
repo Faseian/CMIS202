@@ -18,10 +18,10 @@ public class LoginSignupController {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    private final String url = "jdbc:postgresql://localhost:5432/postgres";
-    private final String username = "postgres";
-    private final String password = "passW0rd";
-    private final Connection con;
+    static final String url = "jdbc:postgresql://bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com:50013/bv9lzxoemi1fludk9lwn";
+    private static final String username = "uvk3fo0h0eqky8che5ri";
+    private static final String password = "HYdwJTABjCKurd43GiQMBfXlMsE7ZA";
+    static Connection con;
     {
         try {
             con = DriverManager.getConnection(url, username, password);
@@ -98,8 +98,12 @@ public class LoginSignupController {
             st.setString(2, pass);
             st.executeUpdate();
             String createUserTable = "CREATE TABLE " + user + " (id SERIAL NOT NULL, total NUMERIC(20,2) NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, PRIMARY KEY (id));";
-            Statement createTable = con.createStatement();
-            createTable.executeUpdate(createUserTable);
+            try {
+                Statement createTable = con.createStatement();
+                createTable.executeUpdate(createUserTable);
+            } catch (SQLException e1) {
+                System.out.println(e1);
+            }
             FileWriter fileWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt") , false);
             fileWriter.write(user);
             fileWriter.close();

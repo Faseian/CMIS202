@@ -5,7 +5,6 @@ import Exceptions.InvalidUsernameException;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.LoadException;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,17 +14,14 @@ import java.io.*;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Scanner;
-
-
 public class LoginSignupController {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    private String url = "jdbc:postgresql://localhost:5432/postgres";
-    private String username = "postgres";
-    private String password = "passW0rd";
-    private Connection con;
+    private final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private final String username = "postgres";
+    private final String password = "passW0rd";
+    private final Connection con;
     {
         try {
             con = DriverManager.getConnection(url, username, password);
@@ -33,14 +29,13 @@ public class LoginSignupController {
             throw new RuntimeException(e);
         }
     }
-    private ArrayList<Expense> Expenses = new ArrayList<>();
-    private User activeUser = new User("", "", Expenses);
+    private final ArrayList<Expense> Expenses = new ArrayList<>();
+    private final User activeUser = new User("", "", Expenses);
     private static final File userFilePath = new File("src/DataFiles/User.txt");
     @FXML
     private TextField userField;
     @FXML
     private TextField passField;
-
     static void checkUsername(String usernameInput) throws InvalidUsernameException, FileNotFoundException {
         if (usernameInput.equals("")) {
             throw new InvalidUsernameException("Invalid username");
@@ -66,77 +61,53 @@ public class LoginSignupController {
     public void checkLogin(ActionEvent e) throws NullPointerException, IOException, SQLException {
         String user = userField.getText();
         String pass = passField.getText();
-
-        if (userFilePath.exists()) {
-            Scanner loginFileText = new Scanner(userFilePath);
-            do {
-                String lineCatcher = loginFileText.nextLine();
-                int holder = lineCatcher.indexOf(",");
-                String inputPass = lineCatcher.substring(holder + 1);
-                String inputUser = lineCatcher.substring(0, holder);
-                if (user.equals(inputUser)) {
-                    if (pass.equals(inputPass)) {
-                        FileWriter fileWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt") , false);
-                        PrintWriter printWriter = new PrintWriter(fileWriter, true);
-                        printWriter.print(user);
-                        printWriter.close();
-                        root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
-                        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-                        scene = new Scene(root);
-                        stage.setScene(scene);
-                        stage.show();
-                    }
-                }
-            } while (loginFileText.hasNext());
-        }
-    }
-
-    public void checkSignup(ActionEvent e) throws IOException {
-        String user = userField.getText();
-        String pass = passField.getText();
-        boolean validUsername = true;
-        try {
-            checkUsername(user);
-            FileWriter fileWriter = new FileWriter(userFilePath, true);
-            PrintWriter printWriter = new PrintWriter(fileWriter);
-
-            if(!userFilePath.exists()) {
-                userFilePath.createNewFile();
-            } else {
-                Scanner loginFileText = new Scanner(userFilePath);
-                do {
-                    String lineCatcher = loginFileText.nextLine();
-                    int holder = lineCatcher.indexOf(",");
-                    String inputUser = lineCatcher.substring(0, holder);
-                    if (user.equals(inputUser)) {
-                        validUsername = false;
-                        System.out.println("Username has been taken");
-                    }
-                } while (loginFileText.hasNext());
-            }
-            if (validUsername) {
-                printWriter.println(user + "," + pass);
-                printWriter.close();
-                File createUserFile = new File("src/DataFiles/UserFiles/" + user + ".txt");
-                createUserFile.createNewFile();
-                FileWriter activeWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt"), false);
-                PrintWriter activePrintWriter = new PrintWriter(activeWriter, true);
-                activePrintWriter.print(user);
-                activePrintWriter.close();
-                String insertUser = "INSERT INTO users (username,pass) VALUES (?,?)";
-                PreparedStatement st = con.prepareStatement(insertUser);
-                st.setString(1, user);
-                st.setString(2, pass);
-                ResultSet rs = st.executeQuery();
-                root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../MainPage.fxml")));
+        String query = "SELECT username, pass FROM users WHERE username=?";
+        PreparedStatement checkLogin = con.prepareStatement(query);
+        checkLogin.setString(1, user);
+        ResultSet rs = checkLogin.executeQuery();
+        if (rs.next()) {
+            if (pass.equals(rs.getString(2))) {
+                FileWriter fileWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt") , false);
+                fileWriter.write(user);
+                fileWriter.close();
+                root = FXMLLoader.load(getClass().getResource("../MainPage.fxml"));
                 stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
                 scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
+            } else {
+                System.out.println("Incorrect Password");
             }
-        } catch (InvalidUsernameException | SQLException exception) {
-            System.out.println("A problem has occurred: " + exception);
+        } else {
+            System.out.println("Incorrect Username");
         }
     }
-
+    public void checkSignup(ActionEvent e) throws IOException, SQLException {
+        String user = userField.getText();
+        String pass = passField.getText();
+        String query = "SELECT username, pass FROM users WHERE username=?";
+        PreparedStatement checkLogin = con.prepareStatement(query);
+        checkLogin.setString(1, user);
+        ResultSet rs = checkLogin.executeQuery();
+        if (rs.next()) {
+            System.out.println("Username has been taken");
+        } else {
+            String insertUser = "INSERT INTO users (username,pass) VALUES (?,?)";
+            PreparedStatement st = con.prepareStatement(insertUser);
+            st.setString(1, user);
+            st.setString(2, pass);
+            st.executeUpdate();
+            String createUserTable = "CREATE TABLE " + user + " (id SERIAL NOT NULL, total NUMERIC(20,2) NOT NULL, name TEXT NOT NULL, type TEXT NOT NULL, PRIMARY KEY (id));";
+            Statement createTable = con.createStatement();
+            createTable.executeUpdate(createUserTable);
+            FileWriter fileWriter = new FileWriter(new File("src/DataFiles/ActiveUser.txt") , false);
+            fileWriter.write(user);
+            fileWriter.close();
+            root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("../MainPage.fxml")));
+            stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+            scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        }
+    }
 }

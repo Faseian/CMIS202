@@ -17,12 +17,24 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import java.io.*;
 import java.net.URL;
+import java.sql.*;
 import java.util.*;
 
 public class MainScreenController implements Initializable {
     private Parent root;
     private Stage stage;
     private Scene scene;
+    private final String url = "jdbc:postgresql://localhost:5432/postgres";
+    private final String username = "postgres";
+    private final String password = "passW0rd";
+    private final Connection con;
+    {
+        try {
+            con = DriverManager.getConnection(url, username, password);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+    }
     private String[] expenseTypes = {"Automotive", "Clothing", "Education", "Entertainment", "Gasoline", "Groceries", "Home", "Medical", "Restaurants", "Services", "Misc"};
     private LinkedList<Expense> queue = new LinkedList<>();
     private TreeSet<Expense> expenseTree = new TreeSet<>();
@@ -50,21 +62,16 @@ public class MainScreenController implements Initializable {
         totalExpenses.clear();
         RadioButton radioButton = (RadioButton) type.getSelectedToggle();
         String holder = radioButton.getText();
-        if (holder.equals("All")) {
-            for (int i = 0; i < queue.size(); i++) {
-                expenseTree.add(queue.get(i));
-                if (!totalExpenses.containsKey(queue.get(i).getExpenseType())) {
-                    totalExpenses.put(queue.get(i).getExpenseType(), queue.get(i).getTotal());
-                } else {
-                    double newAmount = totalExpenses.get(queue.get(i).getExpenseType()) + queue.get(i).getTotal();
-                    totalExpenses.replace(queue.get(i).getExpenseType(), newAmount);
-                }
+        for (Expense expense : queue) {
+            if (expense.getExpenseType().equals(holder)) {
+                totalExpenses.put(expense.getExpenseName(), expense.getTotal());
             }
+        }
+        String[] array = totalExpenses.keySet().toArray(new String[totalExpenses.size()]);
+        if (!(array.length == 0)) {
             ObservableList<PieChart.Data> expenseChartData = FXCollections.observableArrayList();
-            for(int i = 0; i < expenseTypes.length; i++) {
-                if(totalExpenses.containsKey(expenseTypes[i])) {
-                    expenseChartData.add(new PieChart.Data(expenseTypes[i], totalExpenses.get(expenseTypes[i])));
-                }
+            for (int i = 0; i < totalExpenses.size(); i++) {
+                expenseChartData.add(new PieChart.Data(array[i] + " $" + totalExpenses.get(array[i]), totalExpenses.get(array[i])));
             }
             expenseChart = new PieChart(expenseChartData);
             expenseChart.setClockwise(true);
@@ -72,26 +79,8 @@ public class MainScreenController implements Initializable {
             expenseChart.setLabelsVisible(true);
             expenseChart.setStartAngle(180);
             borderPane.setCenter(expenseChart);
-        } else {
-                for (Expense expense : queue) {
-                    if (expense.getExpenseType().equals(holder)) {
-                        totalExpenses.put(expense.getExpenseName(), expense.getTotal());
-                    }
-                }
-                String[] array = totalExpenses.keySet().toArray(new String[totalExpenses.size()]);
-                if (!(array.length == 0)) {
-                    ObservableList<PieChart.Data> expenseChartData = FXCollections.observableArrayList();
-                    for (int i = 0; i < totalExpenses.size(); i++) {
-                        expenseChartData.add(new PieChart.Data(array[i] + " $" + totalExpenses.get(array[i]), totalExpenses.get(array[i])));
-                    }
-                    expenseChart = new PieChart(expenseChartData);
-                    expenseChart.setClockwise(true);
-                    expenseChart.setLabelLineLength(75);
-                    expenseChart.setLabelsVisible(true);
-                    expenseChart.setStartAngle(180);
-                    borderPane.setCenter(expenseChart);
-                }
         }
+
     }
     public void updatePieChart() {
         if (addAll.isSelected()) {
@@ -113,26 +102,20 @@ public class MainScreenController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Scanner activeUserSheet = null;
-        Scanner scanner = null;
+        String user = "";
         try {
             activeUserSheet = new Scanner(new File("src/DataFiles/ActiveUser.txt"));
+            user = activeUserSheet.nextLine();
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-        String user = activeUserSheet.nextLine();
+        String query = "SELECT * FROM " + user;
         try {
-            scanner = new Scanner(new File("src/DataFiles/UserFiles/" + user + ".txt"));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        if (scanner.hasNext()) {
-            while(scanner.hasNext()) {
-                String line = scanner.nextLine();
-                String[] expenseConstruct = line.split(",");
-                Expense expense = new Expense(Double.parseDouble(expenseConstruct[0]), expenseConstruct[1], expenseConstruct[2]);
-                queue.add(expense);
+            PreparedStatement preparedStatement = con.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                queue.add(new Expense(resultSet.getDouble(2), resultSet.getString(3), resultSet.getString(4)));
             }
-            title.setText("Hello " + user);
             for (int i = 0; i < queue.size(); i++) {
                 expenseTree.add(queue.get(i));
                 if (!totalExpenses.containsKey(queue.get(i).getExpenseType())) {
@@ -143,6 +126,8 @@ public class MainScreenController implements Initializable {
                 }
             }
             updatePieChart();
+        } catch (SQLException e) {
+            System.out.println("SQL Error: ");
         }
     }
 }

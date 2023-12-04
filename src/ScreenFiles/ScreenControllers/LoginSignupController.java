@@ -19,9 +19,9 @@ public class LoginSignupController {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    static final String url = "jdbc:postgresql://bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com:50013/bv9lzxoemi1fludk9lwn";
-    private static final String username = "uvk3fo0h0eqky8che5ri";
-    private static final String password = "HYdwJTABjCKurd43GiQMBfXlMsE7ZA";
+    static final String url = "";
+    private static final String username = "";
+    private static final String password = "";
     static Connection con;
     {
         try {

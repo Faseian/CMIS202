@@ -1,1 +1,7 @@
-Faseian,Bruh
+POSTGRESQL_ADDON_DB="bv9lzxoemi1fludk9lwn"
+POSTGRESQL_ADDON_HOST="bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com"
+POSTGRESQL_ADDON_PASSWORD="HYdwJTABjCKurd43GiQMBfXlMsE7ZA"
+POSTGRESQL_ADDON_PORT="50013"
+POSTGRESQL_ADDON_URI="postgresql://uvk3fo0h0eqky8che5ri:HYdwJTABjCKurd43GiQMBfXlMsE7ZA@bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com:50013/bv9lzxoemi1fludk9lwn"
+POSTGRESQL_ADDON_USER="uvk3fo0h0eqky8che5ri"
+POSTGRESQL_ADDON_VERSION="15"

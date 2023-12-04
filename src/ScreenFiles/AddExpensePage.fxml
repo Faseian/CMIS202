@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="ScreenFiles.ScreenControllers.AddExpenseController">
+<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ScreenFiles.ScreenControllers.AddExpenseController">
    <children>
       <Text layoutX="511.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Add Expense">
          <font>
@@ -30,5 +30,10 @@
          </font>
       </Button>
       <ChoiceBox fx:id="expenseType" layoutX="489.0" layoutY="410.0" prefHeight="44.0" prefWidth="300.0" />
+      <Button fx:id="backButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#back" text="Back">
+         <font>
+            <Font name="Serif Regular" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

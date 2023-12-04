@@ -2,6 +2,7 @@ package ScreenFiles.ScreenControllers;
 import ClassFiles.Expense;
 import ClassFiles.User;
 import Exceptions.InvalidUsernameException;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,7 +42,6 @@ public class LoginSignupController {
             throw new InvalidUsernameException("Invalid username");
         }
     }
-
     public void login(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../LoginPage.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -49,7 +49,6 @@ public class LoginSignupController {
         stage.setScene(scene);
         stage.show();
     }
-
     public void signup(ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../SignupPage.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -57,7 +56,6 @@ public class LoginSignupController {
         stage.setScene(scene);
         stage.show();
     }
-
     public void checkLogin(ActionEvent e) throws NullPointerException, IOException, SQLException {
         String user = userField.getText();
         String pass = passField.getText();
@@ -113,5 +111,17 @@ public class LoginSignupController {
             stage.setScene(scene);
             stage.show();
         }
+    }
+    public void back(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../TitlePage.fxml"));
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void close(ActionEvent e) throws SQLException {
+        con.close();
+        Platform.exit();
     }
 }

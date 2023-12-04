@@ -1,5 +1,4 @@
 package ClassFiles;
-
 public class Expense implements Comparable <Expense>{
     private double total;
     private String expenseName;
@@ -9,7 +8,6 @@ public class Expense implements Comparable <Expense>{
         this.expenseName = expenseName;
         this.expenseType = expenseType;
     }
-
     public int compareTo(Expense comp) {
         if (this.getTotal() > comp.getTotal()) {
             return 1;

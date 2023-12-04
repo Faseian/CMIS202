@@ -1,5 +1,6 @@
 package ScreenFiles.ScreenControllers;
 import ClassFiles.Expense;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -26,17 +27,6 @@ public class MainScreenController implements Initializable {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    /*private final String url = "jdbc:postgresql://bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com:50013/bv9lzxoemi1fludk9lwn";
-    private final String username = "uvk3fo0h0eqky8che5ri";
-    private final String password = "HYdwJTABjCKurd43GiQMBfXlMsE7ZA";
-    private final Connection con;
-    {
-        try {
-            con = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
     private String[] expenseTypes = {"Automotive", "Clothing", "Education", "Entertainment", "Gasoline", "Groceries", "Home", "Medical", "Restaurants", "Services", "Misc"};
     private LinkedList<Expense> queue = new LinkedList<>();
     private TreeSet<Expense> expenseTree = new TreeSet<>();
@@ -51,7 +41,6 @@ public class MainScreenController implements Initializable {
     private ToggleGroup type;
     @FXML
     private RadioButton addAll;
-    //, addAutomotive, addEducation, addEntertainment, addGasoline, addGroceries, addHome, addMedical, addRestaurants, addServices, addMisc;
     public void addExpensePage (ActionEvent e) throws IOException {
         root = FXMLLoader.load(getClass().getResource("../AddExpensePage.fxml"));
         stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -131,5 +120,11 @@ public class MainScreenController implements Initializable {
         } catch (SQLException e) {
             System.out.println("SQL Error: ");
         }
+        title.setText("Hello " + user);
+    }
+    @FXML
+    public void close(ActionEvent e) throws SQLException {
+        con.close();
+        Platform.exit();
     }
 }

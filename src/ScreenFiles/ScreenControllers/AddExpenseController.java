@@ -1,6 +1,7 @@
 package ScreenFiles.ScreenControllers;
 import ClassFiles.Expense;
 import ClassFiles.User;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,8 +15,6 @@ import javafx.stage.Stage;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -28,17 +27,6 @@ public class AddExpenseController implements Initializable {
     private Parent root;
     private Stage stage;
     private Scene scene;
-    /*private final String url = "jdbc:postgresql://bv9lzxoemi1fludk9lwn-postgresql.services.clever-cloud.com:50013/bv9lzxoemi1fludk9lwn";
-    private final String username = "uvk3fo0h0eqky8che5ri";
-    private final String password = "HYdwJTABjCKurd43GiQMBfXlMsE7ZA";
-    private final Connection con;
-    {
-        try {
-            con = DriverManager.getConnection(url, username, password);
-        } catch (SQLException e) {
-            throw new RuntimeException(e);
-        }
-    }*/
     @FXML
     private TextField ExpenseTotal;
     @FXML
@@ -64,7 +52,7 @@ public class AddExpenseController implements Initializable {
         String insertExpense = "INSERT INTO " + user + " (total, name, type) VALUES (?,?,?)";
         PreparedStatement preparedStatement = con.prepareStatement(insertExpense);
         Expense expense = createExpense();
-        System.out.println("Expense total, name, and type " + expense.getTotal() + " " + expense.getExpenseName() + " " + expense.getExpenseType());
+        System.out.println("Expense total, name, and type: " + expense.getTotal() + " " + expense.getExpenseName() + " " + expense.getExpenseType());
         if (expense.getTotal() < 0) {
             System.out.println("Invalid total");
         } else {
@@ -82,5 +70,17 @@ public class AddExpenseController implements Initializable {
                 System.out.println("Error: " + e1);
             }
         }
+    }
+    public void back(ActionEvent e) throws IOException {
+        root = FXMLLoader.load(getClass().getResource("../TitlePage.fxml"));
+        stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    @FXML
+    public void close(ActionEvent e) throws SQLException {
+        con.close();
+        Platform.exit();
     }
 }
